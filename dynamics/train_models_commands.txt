@@ -1,3 +1,0 @@
-python train.py --config /svl/u//boai/robopack/dynamics/model_configs/estimator_predictor_tac_packing_seq25.json
-
-python train.py --config /svl/u//boai/robopack/dynamics/model_configs/estimator_predictor_notac_packing.json
