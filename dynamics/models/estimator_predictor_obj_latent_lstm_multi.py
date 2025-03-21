@@ -48,6 +48,7 @@ class DynamicsPredictor(pl.LightningModule):
         self.tac_feat_dim = config["ae_enc_dim"]
         self.n_object_points = sum(config["n_points"])  # number of points except tool
         self.num_objects = len(config["n_points"])
+        self.num_object_points = sum(config["n_points"])
         self.lr = config["optimizer"]["lr"]
         self.num_bubbles = 2
         self.zero_tactile = config["zero_tactile"]
@@ -66,6 +67,7 @@ class DynamicsPredictor(pl.LightningModule):
         self.teacher_forcing_thres = config["teacher_forcing_thres"]
 
         # tactile-related
+        ae_checkpoint = config["ae_checkpoint"]
         self.autoencoder = AutoEncoder.load_from_checkpoint(input_dim=config["tactile_raw_dim"],
                                                             encoding_dim=config["ae_enc_dim"],
                                                             config=config, stats=stats,
@@ -454,8 +456,8 @@ class DynamicsPredictor(pl.LightningModule):
 
         train_pos_loss, tac_loss = 0, 0
         pred_pos, pred_tactile, pred_physics = None, None, None
-        
-        tac_feat_bubbles = self.autoencoder.encode_structured(batch)
+
+        tac_feat_bubbles = self.autoencoder.encode_structured(batch, n_object_points=self.num_object_points)
         self.estimator.reset_lstm_state()
         physics_params_t = [] 
         box_losses = torch.zeros(1, self.num_objects)
@@ -551,7 +553,7 @@ class DynamicsPredictor(pl.LightningModule):
         train_pos_loss, tac_loss = 0, 0
         pred_pos, pred_tactile, pred_physics = None, None, None
         
-        tac_feat_bubbles = self.autoencoder.encode_structured(batch)
+        tac_feat_bubbles = self.autoencoder.encode_structured(batch, n_object_points=self.num_object_points)
         self.estimator.reset_lstm_state()
         physics_params_t = [] 
         box_losses = torch.zeros(1, self.num_objects)
@@ -702,7 +704,7 @@ class DynamicsPredictor(pl.LightningModule):
 
         pred_pos, pred_tactile, self.pred_physics = None, None, None
 
-        tac_feat_bubbles = self.autoencoder.encode_structured(batch)
+        tac_feat_bubbles = self.autoencoder.encode_structured(batch, n_object_points=self.num_object_points)
         
         # For each state in the sequence (S), calculate the predicted state and losses
         self.estimator.reset_lstm_state()

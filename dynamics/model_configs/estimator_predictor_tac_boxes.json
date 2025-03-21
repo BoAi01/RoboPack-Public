@@ -2,7 +2,7 @@
     "log_name": "v24_estimator_predictor",
     "module_name": "estimator_predictor_obj_latent_lstm", 
     "pred_physics_params": true,  
-    "rebuild_dataset": true,
+    "rebuild_dataset": false,
     "skip_data_folder": ["box1"],
     "debug": false,
     "test_only": false,

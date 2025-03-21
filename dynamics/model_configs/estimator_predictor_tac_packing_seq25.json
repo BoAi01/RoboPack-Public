@@ -2,16 +2,16 @@
     "log_name": "v2_0127_packing_v1_anno",
     "module_name": "estimator_predictor_obj_latent_lstm_multi", 
     "pred_physics_params": true,  
-    "rebuild_dataset": true,
+    "rebuild_dataset": false,
     "skip_data_folder": [],
     "debug": false,
-    "test_only": true,
-    "pretrained_path": "/svl/u/boai/robopack/dynamics/training/train_tb_logs/v2_0127_packing_v1_anno/version_5/checkpoints/epoch=36-step=22607-val_loss=0.00020-val_tac_loss=0.00000.ckpt",
+    "test_only": false,
+    "pretrained_path": "",
     "chamfer_emd_weights": {
         "chamfer": 0.5,
         "emd": 0.5
     },
-    "every_n_frame": 8,
+    "every_n_frame": 2,
     "rigid_only": false,
     "use_knn": false,
     "data_dir_prefix": "v2_0127_packing_v1_anno",
@@ -47,7 +47,7 @@
     "teacher_forcing_thres": 100,
 
     "ae_enc_dim": 5,
-    "ae_checkpoint": "/svl/u/boai/robopack/dynamics/pretrained_ae/v24_4boxes_epoch=107-step=153576.ckpt",
+    "ae_checkpoint": "pretrained_ae/v24_5to5_epoch=101-step=70482_corrected.ckpt",
 
     "num_workers": 16,
     "optimizer": {

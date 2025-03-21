@@ -101,13 +101,19 @@ class AutoEncoder(pl.LightningModule):
         # self.pressure_mean = torch.tensor(self.stats["pressure_mean"], dtype=torch.float32, device=device)
         # self.pressure_scale = torch.tensor(self.stats["pressure_scale"], dtype=torch.float32, device=device)
 
-    def preprocess_data(self, data, recover_dim=False):
+    def preprocess_data(self, data, recover_dim=False, n_object_points=None):
         B = data.num_graphs
         N = data.num_nodes // B
         # forces, flows, pressure = data.forces, data.flows, data.pressure
         forces, flows = data.forces, data.flows
-        n_bubble_points = (N - self.n_object_points) // 2
-        assert n_bubble_points == self.particles_per_obj, f"the bubble should have {self.particles_per_obj} points, got {n_bubble_points} instead" 
+
+        if n_object_points is None:
+            n_bubble_points = (N - self.n_object_points) // 2       # self.n_object_points is the value from checkpoint which might not be accurate
+        else:
+            n_bubble_points = (N - n_object_points) // 2
+        assert n_bubble_points == self.particles_per_obj, \
+            f"the bubble should have {self.particles_per_obj} points, got {n_bubble_points} instead"
+
         # -1 means seq length, e.g., (his_len + seq_len) during training
         # but at test time the value might differ
         forces = forces.view(B, -1, self.num_bubbles, 7)
@@ -142,7 +148,7 @@ class AutoEncoder(pl.LightningModule):
         decoded = self.decoder(encoded)
         return decoded
 
-    def encode_structured(self, batch):
+    def encode_structured(self, batch, n_object_points=None):
         """
         Extract the tactile reading from a dynamics model data object.
         The method makes assumption on the data structure.
@@ -151,7 +157,7 @@ class AutoEncoder(pl.LightningModule):
         :return: The extracted latent features of the tactile readings
         """
         self.total_count += 1
-        data = self.preprocess_data(batch, recover_dim=True)
+        data = self.preprocess_data(batch, recover_dim=True, n_object_points=n_object_points)
         # ST: Not sure if this is correct
         data = data.float()
         

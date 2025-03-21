@@ -464,8 +464,8 @@ class DynamicsPredictor(pl.LightningModule):
 
         train_pos_loss, tac_loss = 0, 0
         pred_pos, pred_tactile, pred_physics = None, None, None
-        
-        tac_feat_bubbles = self.autoencoder.encode_structured(batch)
+
+        tac_feat_bubbles = self.autoencoder.encode_structured(batch, n_object_points=self.n_object_points)
         self.estimator.reset_lstm_state()
         physics_params_t = [] 
         box_losses = torch.zeros(1, self.num_objects)
@@ -562,7 +562,7 @@ class DynamicsPredictor(pl.LightningModule):
         train_pos_loss, tac_loss = 0, 0
         pred_pos, pred_tactile, pred_physics = None, None, None
         
-        tac_feat_bubbles = self.autoencoder.encode_structured(batch)
+        tac_feat_bubbles = self.autoencoder.encode_structured(batch, n_object_points=self.n_object_points)
         self.estimator.reset_lstm_state()
         physics_params_t = [] 
         box_losses = torch.zeros(1, self.num_objects)
@@ -713,7 +713,7 @@ class DynamicsPredictor(pl.LightningModule):
 
         pred_pos, pred_tactile, self.pred_physics = None, None, None
 
-        tac_feat_bubbles = self.autoencoder.encode_structured(batch)
+        tac_feat_bubbles = self.autoencoder.encode_structured(batch, n_object_points=self.n_object_points)
         
         # For each state in the sequence (S), calculate the predicted state and losses
         self.estimator.reset_lstm_state()
