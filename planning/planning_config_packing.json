@@ -1,0 +1,31 @@
+{
+  "pretrained_path": "/home/albert/github/robopack/trained_models/1_29_packing/epoch=36-step=22607-val_loss=0.00020-val_tac_loss=0.00000.ckpt",
+  "pretrained_path_0": "/home/albert/github/robopack/trained_models/1_29_packing_notac/epoch=73-step=50394-val_loss=0.00012-val_tac_loss=0.00000.ckpt",
+  "dynamics_config_path": "/home/albert/github/robopack/dynamics/model_configs/estimator_predictor_tac_packing.json",
+  "model": "ours",
+  "horizon": 1,
+  "action_dim": 3,
+  "history_len": 25,
+  "max_plan_executions": 9,
+  "max_execution_steps": 5000,
+  "goal": {
+    "position": [0.5, -0.1, 0.02],
+    "orientation": [0, 0, -90]
+  },
+  "use_visual_feedback": false,
+  "num_pushes_per_visual_feedback": 3,
+  "replan_sampler_params": {
+    "num_samples": 150,
+    "num_actions": 80,
+    "num_iterations": 1
+  },
+  "initial_sampler_params": {
+    "num_samples": 150,
+    "num_actions": 80,
+    "num_iterations": 1
+  },
+  "initial_ee_pos": [0.5, 0.2, 0.32],
+  "pushing_initialization_pos": [0.5, 0.12, 0.3],
+  "visualize_top_k": 1,
+  "intermediate_tracking_steps": 0
+}

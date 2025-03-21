@@ -1,0 +1,6 @@
+# not needed if launch from the launch file
+roslaunch realsense2_camera rs_camera.launch camera:=cam_0 serial_no:=125322061326 depth_module.enable_auto_exposure.1:=false enable_pointcloud:=true color_aligned_depth:=false depth_width:=1280 depth_height:=720 color_width:=1280 color_height:=720 depth_fps:=6 color_fps:=6 filters:=temporal
+roslaunch realsense2_camera rs_camera.launch camera:=cam_1 serial_no:=125322060645 depth_module.enable_auto_exposure.1:=false enable_pointcloud:=true color_aligned_depth:=false depth_width:=1280 depth_height:=720 color_width:=1280 color_height:=720 depth_fps:=6 color_fps:=6 filters:=temporal
+roslaunch realsense2_camera rs_camera.launch camera:=cam_2 serial_no:=125322063608 depth_module.enable_auto_exposure.1:=false enable_pointcloud:=true color_aligned_depth:=false depth_width:=1280 depth_height:=720 color_width:=1280 color_height:=720 depth_fps:=6 color_fps:=6 filters:=temporal
+roslaunch realsense2_camera rs_camera.launch camera:=cam_3 serial_no:=821312060498 depth_module.enable_auto_exposure.1:=false enable_pointcloud:=true color_aligned_depth:=false depth_width:=1280 depth_height:=720 color_width:=1280 color_height:=720 depth_fps:=6 color_fps:=6 filters:=temporal
+

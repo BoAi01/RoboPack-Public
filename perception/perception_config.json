@@ -1,0 +1,133 @@
+{
+    "denoise_depth": 1,
+    "epi_len": 5,
+    "n_points": 300,
+    "n_videos": 300,
+    "sample_factor": 50,
+    "data_dir_prefix": "/media/haochen/Game Drive PS4/robocook/raw_data/gripper_sym_rod_robot_v4",
+    "logging_level": "INFO",
+    "name": "sandwich",
+    "start_idx": "0-0",
+    "tool_name": "two_rod_sym_gripper",
+    "crop_center": [
+        0.4,
+        -0.1,
+        0.035
+    ],
+    "crop_scale": [
+        0.1,
+        0.1,
+        0.03
+    ],
+    "dense_recontruct_config": {
+        "depth": 6,
+        "method": "poisson",
+        "mesh_fix": true
+    },
+    "dough_hsv_max": [
+        80,
+        1,
+        1
+    ],
+    "dough_hsv_min": [
+        0,
+        0,
+        0
+    ],
+    "metric_names": [
+        "video_idx",
+        "frame_idx",
+        "pred_loss",
+        "emd"
+    ],
+    "motion_field": {
+        "n_points_dense": 3000,
+        "n_samples": 10,
+        "n_samples_vis": 1,
+        "data_loader": {
+            "max_freq": 0,
+            "num_workers": 8,
+            "predict_batch_size": 300,
+            "train_batch_size": 256,
+            "validation_split": 0.1
+        },
+        "MLP": {
+            "D": 4,
+            "W": 256
+        },
+        "optimizer": {
+            "lr": 0.0001,
+            "max_epoch": 200
+        }
+    },
+    "surface_recontruct_config": {
+        "alpha": 0.005,
+        "method": "alpha_shape",
+        "mesh_fix": false
+    },
+    "visualize_flag": {
+        "color_segmentation": false,
+        "denoise": false,
+        "filter_by_tool": false,
+        "merge": false,
+        "sample_full": false,
+        "sample_in_mesh": false,
+        "sample_surface": false
+    },
+    "visualizer": {
+        "fps": 15,
+        "point_size": 40,
+        "subfigsize": 6,
+        "subtitle_fontsize": 16,
+        "title_fontsize": 24,
+        "vis_scale": 0.05,
+        "pc_color": {
+            "object": [
+                "b",
+                1
+            ],
+            "target": [
+                "c",
+                0.3
+            ],
+            "tool": [
+                "r",
+                1
+            ]
+        },
+        "pc_visible": [
+            "object",
+            "tool"
+        ],
+        "view_names": [
+            "top",
+            "front",
+            "persp."
+        ],
+        "views": [
+            [
+                90,
+                -90
+            ],
+            [
+                0,
+                -90
+            ],
+            [
+                45,
+                -45
+            ]
+        ],
+        "vis_center": [
+            0.4,
+            -0.1,
+            0.035
+        ],
+        "axis_on": true,
+        "axis_ticklabel_on": true,
+        "object_centric": false,
+        "pc_zorder": null
+    },
+    "use_motion_field": true,
+    "use_surface_sampling": true
+}

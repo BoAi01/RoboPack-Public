@@ -1,0 +1,157 @@
+{
+    "log_name": "v24_estimator_predictor",
+    "module_name": "dynamics_ae", 
+    "pred_physics_params": true,  
+    "rebuild_dataset": true,
+    "skip_data_folder": ["box1", "box3", "box5", "box6"],
+    "debug": false,
+    "test_only": true,
+    "pretrained_path": "/svl/u/boai/robopack/dynamics/training/train_tb_logs/v24_estimator_predictor/version_14/checkpoints/epoch=16-step=17408-val_loss=0.00889-val_tac_loss=0.00886.ckpt",
+    "chamfer_emd_weights": {
+        "chamfer": 0.5,
+        "emd": 0.5
+    },
+    "every_n_frame": 8,
+    "rigid_only": true,
+    "use_knn": false,
+    "data_dir_prefix": "v24_fix_rod",
+    "fix_bubble": false, 
+    "k_neighbors": 5,
+    "connectivity_radius_inner": 0.15,
+    "connectivity_radius_outer": 0.15,
+    "particles_per_obj": 20,
+    "n_points": [
+        20,
+        20
+    ],
+    "dpi_net": {
+        "hidden_size_edge": 150,
+        "hidden_size_effect": 150,
+        "hidden_size_node": 150,
+        "obj_phy_feat_len": 16,
+        "n_layers": 3,
+        "propgation_step": 3,
+        "history_before_rigid": false
+    },
+
+    "tactile_raw_dim": 5,
+    "zero_tactile": false, 
+    "tactile_use_gt": false,
+    "visual_blind": true,
+    "recurr_T": 15,
+
+    "teacher_forcing_thres": 100,
+
+    "ae_enc_dim": 5,
+    "ae_checkpoint": "/svl/u/boai/robopack/dynamics/pretrained_ae/v24_4boxes_epoch=107-step=153576.ckpt",
+
+    "num_workers": 16,
+    "optimizer": {
+        "lr": 0.0005,
+        "max_epoch": 200
+    },
+    "train_batch_size": 4,
+    "test_batch_size": 1,
+
+    "euler_angle_bound": 30,
+    "exp_name": "",
+    "feature_dim_action": 3,
+    "feature_dim_vision": 3,
+    "gnn_type": "dpi",
+    "has_rigid_motion": true,
+    "loss_by_n_points": 1,
+    "history_length": 1,
+    "logging_level": "INFO",
+    "loss_type": "mse",
+    "pos_loss_weight": 10, 
+    "object_weights": [
+        2,
+        1
+    ],
+    "metric_names": [
+        "chamfer",
+        "emd",
+        "mse"
+    ],
+    "rigid_dim": 6,
+    "sequence_length": 25,
+    "name": "sandwich",
+
+    "point_transformer": {
+        "hidden_size_edge": 150,
+        "hidden_size_effect": 150,
+        "hidden_size_node": 150,
+        "hidden_transformer_dim": 64,
+        "propgation_step": 3,
+        "n_layers": 3
+    },
+    "tool_name": "two_rod_sym_gripper",
+    "visualizer": {
+        "axis_on": true,
+        "axis_ticklabel_on": false,
+        "fps": 2,
+        "object_centric": false,
+        "pc_color": {
+            "object_obs": [
+                "g",
+                1
+            ],
+            "inhand": [
+                "b",
+                1
+            ],
+            "bubble": [
+                "r",
+                0.3
+            ],
+            "target": [
+                "r",
+                1
+            ],
+            "tool": [
+                "r",
+                1
+            ]
+        },
+        "pc_visible": [
+            "object_obs",
+            "inhand",
+            "bubble"
+        ],
+        "not_pc": [
+            "forces",
+            "flows",
+            "pressure"
+        ],
+        "pc_zorder": null,
+        "point_size": 60,
+        "subfigsize": 5,
+        "subtitle_fontsize": 16,
+        "title_fontsize": 24,
+        "view_names": [
+            "top",
+            "front",
+            "persp."
+        ],
+        "views": [
+            [
+                90,
+                -90
+            ],
+            [
+                0,
+                -90
+            ],
+            [
+                45,
+                -45
+            ]
+        ],
+        "vis_center": [
+            0.45,
+            0,
+            0.0
+        ],
+        "vis_scale": 0.25
+    }
+}

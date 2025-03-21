@@ -1,0 +1,41 @@
+{
+  "pretrained_path": "/home/albert/github/robopack/trained_models/dec_19/tac_state_est_v10_epoch=90-step=39221-val_loss=0.00358-val_tac_loss=0.00000.ckpt",
+  "tac_pretrained_path": "/home/albert/github/robopack/trained_models/dec_18/tac_version32_epoch=97-step=25774-val_loss=0.00207-val_tac_loss=0.00330.ckpt",
+  "notac_pretrained_path": "/home/albert/github/robopack/trained_models/dec_18/notac_version40_epoch=98-step=39006-val_loss=0.00370-val_tac_loss=0.00000.ckpt",
+  "old_dynamics_config_path": "/home/albert/github/robopack/dynamics/model_configs/v13_latent_lstm_tactile_after.json",
+  "dynamics_config_path": "/home/albert/github/robopack/dynamics/model_configs/estimator_predictor_tac_box3.json",
+  "action_dim": 3,
+  "horizon": 30,
+  "history_len": 30,
+  "num_execution_iterations": 100,
+  "num_actions_to_execute_per_step": 15,
+  "goal": {
+    "position": [0.5, -0.2, 0.025],
+    "orientation": [0, 0, 0]
+  },
+  "use_visual_feedback": true,
+  "replan_sampler_params": {
+    "mean": [0, 0, 0],
+    "std": [0.00718885, 0.011, 0.000],
+    "num_samples": 100,
+    "num_iterations": 1,
+    "gamma": 100,
+    "num_repeat": 1,
+    "horizon": 30,
+    "beta": 0.2
+  },
+  "initial_sampler_params": {
+    "mean": [0, 0, 0],
+    "old_std": [0.01418885, 0.022, 0.000],
+    "std": [0.03, 0.03, 0.000],
+    "num_samples": 500,
+    "num_iterations": 5,
+    "gamma": 100,
+    "num_repeat": 5,
+    "horizon": 30,
+    "beta": 0.3
+  },
+  "initial_ee_pos": [0.5, 0, 0.32],
+  "pushing_initialization_pos": [0.5, 0, 0.325],
+  "visualize_top_k": 1
+}

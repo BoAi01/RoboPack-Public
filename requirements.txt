@@ -1,0 +1,149 @@
+addict==2.4.0
+aiohappyeyeballs @ file:///croot/aiohappyeyeballs_1725434011349/work
+aiohttp==3.10.11
+aiosignal @ file:///tmp/build/80754af9/aiosignal_1637843061372/work
+annotated-types==0.7.0
+asttokens==3.0.0
+async-timeout @ file:///croot/async-timeout_1703096998144/work
+attrs @ file:///croot/attrs_1729089401488/work
+backcall==0.2.0
+blinker==1.8.2
+Brotli @ file:///croot/brotli-split_1714483155106/work
+certifi @ file:///croot/certifi_1725551672989/work/certifi
+cffi @ file:///croot/cffi_1726856441404/work
+charset-normalizer @ file:///croot/charset-normalizer_1721748349566/work
+click==8.1.8
+comm==0.2.2
+ConfigArgParse==1.7
+contourpy==1.1.1
+cycler==0.12.1
+dash==3.0.0
+decorator==5.2.1
+dgl==1.1.1
+executing==2.2.0
+fastjsonschema==2.21.1
+filelock==3.16.1
+Flask==3.0.3
+fonttools==4.56.0
+frozenlist @ file:///croot/frozenlist_1698702560391/work
+fsspec @ file:///croot/fsspec_1724855583730/work
+future @ file:///croot/future_1677599870788/work
+fvcore==0.1.5.post20221221
+h5py==3.11.0
+idna==3.10
+imageio==2.35.1
+importlib_metadata==8.5.0
+importlib_resources==6.4.5
+iopath==0.1.10
+ipython==8.12.3
+ipywidgets==8.1.5
+itsdangerous==2.2.0
+jedi==0.19.2
+Jinja2 @ file:///croot/jinja2_1716993405101/work
+joblib @ file:///croot/joblib_1718217211762/work
+jsonschema==4.23.0
+jsonschema-specifications==2023.12.1
+jupyter_core==5.7.2
+jupyterlab_widgets==3.0.13
+kiwisolver==1.4.7
+lightning==2.3.3
+lightning-utilities==0.11.9
+MarkupSafe @ file:///croot/markupsafe_1704205993651/work
+matplotlib==3.7.5
+matplotlib-inline==0.1.7
+mkl-fft==1.3.1
+mkl-random @ file:///tmp/build/80754af9/mkl_random_1626186064646/work
+mkl-service==2.4.0
+mpmath==1.3.0
+multidict @ file:///croot/multidict_1701096859099/work
+narwhals==1.31.0
+nbformat==5.10.4
+nest-asyncio==1.6.0
+networkx==3.1
+numpy @ file:///croot/numpy_and_numpy_base_1682520569166/work
+nvidia-cublas-cu11==11.10.3.66
+nvidia-cublas-cu12==12.4.2.65
+nvidia-cuda-cupti-cu12==12.4.99
+nvidia-cuda-nvrtc-cu11==11.7.99
+nvidia-cuda-nvrtc-cu12==12.4.99
+nvidia-cuda-runtime-cu11==11.7.99
+nvidia-cuda-runtime-cu12==12.4.99
+nvidia-cudnn-cu11==8.5.0.96
+nvidia-cudnn-cu12==9.1.0.70
+nvidia-cufft-cu12==11.2.0.44
+nvidia-curand-cu12==10.3.5.119
+nvidia-cusolver-cu12==11.6.0.99
+nvidia-cusparse-cu12==12.3.0.142
+nvidia-nccl-cu12==2.20.5
+nvidia-nvjitlink-cu12==12.4.99
+nvidia-nvtx-cu12==12.4.99
+open3d==0.19.0
+opencv-python==4.11.0.86
+packaging==24.2
+pandas==2.0.3
+parso==0.8.4
+pexpect==4.9.0
+pickleshare==0.7.5
+pillow==10.4.0
+pkgutil_resolve_name==1.3.10
+platformdirs==4.3.6
+plotly==6.0.1
+portalocker==3.0.0
+prompt_toolkit==3.0.50
+propcache==0.2.0
+protobuf==5.29.4
+psutil @ file:///opt/conda/conda-bld/psutil_1656431268089/work
+ptyprocess==0.7.0
+pure_eval==0.2.3
+pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
+pydantic==2.10.6
+pydantic_core==2.27.2
+pyg-lib==0.4.0+pt24cu124
+Pygments==2.19.1
+pyparsing @ file:///croot/pyparsing_1725041624202/work
+pyquaternion==0.9.9
+PySocks @ file:///tmp/build/80754af9/pysocks_1605305779399/work
+python-dateutil==2.9.0.post0
+pytorch-lightning==2.0.6
+pytorch3d==0.3.0
+pytz==2025.1
+PyYAML @ file:///croot/pyyaml_1728657952215/work
+referencing==0.35.1
+requests @ file:///croot/requests_1721410876868/work
+retrying==1.3.4
+rpds-py==0.20.1
+scikit-learn @ file:///croot/scikit-learn_1694788527225/work
+scipy==1.10.1
+seaborn==0.13.2
+six @ file:///tmp/build/80754af9/six_1644875935023/work
+stack-data==0.6.3
+stringcase==1.2.0
+sympy==1.13.3
+tabulate==0.9.0
+tensorboardX==2.6.2.2
+termcolor==2.4.0
+threadpoolctl @ file:///croot/threadpoolctl_1719407800858/work
+tomli==2.0.1
+torch==2.4.1+cu124
+torch_cluster==1.6.3+pt24cu124
+torch_geometric @ file:///usr/share/miniconda/envs/test/conda-bld/pyg_1710962170993/work
+torch_scatter==2.1.2+pt24cu124
+torch_sparse==0.6.18+pt24cu124
+torch_spline_conv==1.2.2+pt24cu124
+torchaudio==2.4.1
+torchdata==0.8.0
+torchmetrics==1.5.2
+torchvision==0.19.1
+tqdm @ file:///croot/tqdm_1724853939799/work
+traitlets==5.14.3
+transforms3d==0.4.2
+triton==3.0.0
+typing_extensions @ file:///croot/typing_extensions_1715268824938/work
+tzdata==2025.1
+urllib3 @ file:///croot/urllib3_1727769808118/work
+wcwidth==0.2.13
+Werkzeug==3.0.6
+widgetsnbextension==4.0.13
+yacs==0.1.8
+yarl==1.15.2
+zipp==3.20.2

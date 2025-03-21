@@ -1,0 +1,7 @@
+<launch>
+    <arg name="name" default="point_cloud" />
+    <arg name="load_gripper" default="true" />
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find franka_description)/robots/panda_arm.urdf.xacro hand:=$(arg load_gripper)" />
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+    <node type="rviz" name="rviz" pkg="rviz" args="-d /home/albert/github/robopack/calibration/robo_cam_calibration.rviz" />
+</launch>
