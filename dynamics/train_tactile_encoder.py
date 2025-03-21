@@ -66,10 +66,10 @@ def test(config, stats, save_dir, best_model_path):
 
     trainer.test(model, data_module)
     
-    tb_log_dir = os.path.dirname(os.path.dirname(best_model_path))
-    loss_array_path = os.path.join(tb_log_dir, "metrics.npy")
-    np.save(loss_array_path, model.test_losses)
-    print(f'AE testing losses saved to {loss_array_path}')
+    # tb_log_dir = os.path.dirname(os.path.dirname(best_model_path))
+    # loss_array_path = os.path.join(tb_log_dir, "metrics.npy")
+    # np.save(loss_array_path, model.test_losses)
+    # print(f'AE testing losses saved to {loss_array_path}')
 
 
 if __name__ == '__main__':

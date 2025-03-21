@@ -23,13 +23,36 @@ and the previous work that this codebase is built upon.
 ## Environment
 Dependencies have been exported to `requirement.txt`. The most important is to have compatible versions for `torch` and `torch_geometric`. 
 
-## Dynamics Learning
-To run a minimal example of dynamics learning, first download a sample dataset [here](https://drive.google.com/file/d/1KS9Zyp4Z9K7R0F13zmgMpsP21Wa589C2/view?usp=sharing), then run the following
+## Sample Dataset
+We provide a small sample dataset to help get started with running the pipeline. You can download it [here](https://drive.google.com/file/d/1KS9Zyp4Z9K7R0F13zmgMpsP21Wa589C2/view?usp=sharing).  
+After downloading, please unzip it in the project root folder:
 ```angular2html
 cd robopack
 unzip data.zip
-cd dynamics 
-python train_dynamics.py --config model_configs/estimator_predictor_tac_boxes.json
 ```
-This will load a sample dataset for the non-prehensile box-pushing task.
+The example commands below assume that the data directory `robopack/data` has already been set up.
 
+## Learning Tactile Auto-Encoder
+First, navigate to `dynamics`
+```angular2html
+cd dynamics
+```
+
+Below is an example command for training a tactile encoder on the box-pushing dataset:
+```angular2html
+python train_tactile_encoder.py --config model_configs/estimator_predictor_tac_packing_seq25.json
+```
+In practice, we train the encoder on an aggregated dataset, which is then shared across tasks.
+
+To generate visualizations from a pretrained autoencoder for inspection, here is an example of testing a checkpoint:
+```angular2html
+ python train_tactile_encoder.py --config model_configs/estimator_predictor_tac_boxes.json --test /home/albert/github/robopack-public/dynamics/pretrained_ae/v24_5to5_epoch=101-step=70482_corrected.ckpt
+```
+The generated visualization videos will be saved in `ae_visualizations`.
+
+## Dynamics Learning
+To run a minimal example of dynamics learning, run one of the following the following
+```angular2html
+python train_dynamics.py --config model_configs/estimator_predictor_tac_boxes.json  # box pushing task
+python train_dynamics.py --config model_configs/estimator_predictor_tac_packing_seq25.json  # dense packing task 
+```
