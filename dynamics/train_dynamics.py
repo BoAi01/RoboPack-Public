@@ -338,6 +338,7 @@ def main():
     stats = load_h5_data(os.path.join(DATA_DIR, config["data_dir_prefix"], "train", "stats.h5"))
 
     save_dir = 'training'
+    os.mkdir(save_dir, exist_ok=True)
     assert os.path.exists(save_dir), f"path does not exist: {save_dir}"
 
     if config["test_only"]:
