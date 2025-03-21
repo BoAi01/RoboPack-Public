@@ -9,7 +9,7 @@ from utils.utils import *
 
 
 class ConfigParser:
-    def __init__(self, config, modification=None, resume=None, device=None):
+    def __init__(self, config, modification=None, resume=None, device=None, test=None):
         """
         class to parse configuration json file. Handles hyperparameters for training, initializations of modules, checkpoint saving
         and logging module.
@@ -22,6 +22,7 @@ class ConfigParser:
         self.modification = modification
         self.resume = resume
         self.device = device
+        self.test = test
 
     @classmethod
     def from_args(cls, parser, options=""):
@@ -66,6 +67,7 @@ class ConfigParser:
         if not isinstance(parser, tuple):
             args = parser.parse_args()
             device = torch.device(f"cuda:{args.device}" if torch.cuda.is_available() else "cpu")
+            test_ckpt = args.test
 
         msg_no_cfg = "Configuration file need to be specified. Add '-c config.json', for example."
         assert args.config is not None, msg_no_cfg
@@ -78,7 +80,7 @@ class ConfigParser:
         modification = {
             opt.target: getattr(args, _get_opt_name(opt.flags)) for opt in options
         }
-        return cls(config, modification=modification, device=device)
+        return cls(config, modification=modification, device=device, test=test_ckpt)
 
     def init_obj(self, name, module, *args, **kwargs):
         """

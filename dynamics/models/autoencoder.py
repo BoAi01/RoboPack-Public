@@ -91,7 +91,9 @@ class AutoEncoder(pl.LightningModule):
         self.save_hyperparameters()
         
         # to log testing
-        self.test_losses = [] 
+        self.test_losses = []
+        self.vis_path = "./ae_visualizations"
+        os.makedirs(self.vis_path, exist_ok=True)
         
     def set_statistics(self, device):
         self.force_mean = torch.tensor(self.stats["force_mean"], dtype=torch.float32, device=device)
@@ -268,7 +270,9 @@ class AutoEncoder(pl.LightningModule):
 
             frames.append(from_ax_to_pil_img(fig))
 
-        play_and_save_video(frames, f'./ae_vis_test_v24_box4/ae_{batch_idx}.mp4', 1)
+        video_path = os.path.join(self.vis_path, f'{batch_idx}.mp4')
+        play_and_save_video(frames, video_path, 1)
+        print(f'Video saved to {video_path}')
 
     def configure_optimizers(self):
         self.optimizer = torch.optim.Adam(self.parameters(), lr=0.01)

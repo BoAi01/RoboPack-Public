@@ -95,11 +95,20 @@ if __name__ == '__main__':
         type=str,
         help="indices of GPUs to enable (default: all)",
     )
+    parser.add_argument(
+        "-t",
+        "--test",
+        default=None,
+        type=str,
+        help="path to checkpoint to test",
+    )
 
     config = ConfigParser.from_dynamics_args(parser)
     stats = load_h5_data(os.path.join(DATA_DIR, config["data_dir_prefix"], "train", "stats.h5"))
     save_dir = 'training_ae'
 
-    # best_model_path = train(config, stats, save_dir)
-    best_model_path = "/svl/u/boai/robopack/dynamics/pretrained_ae/v24_4boxes_epoch=107-step=153576.ckpt"
-    test(config, stats, save_dir, best_model_path)
+    if config.test:
+        print(f'Testing on checkpoint: {config.test}')
+        test(config, stats, save_dir, config.test)
+    else:
+        best_model_path = train(config, stats, save_dir)
