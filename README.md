@@ -26,7 +26,7 @@ Dependencies have been exported to `requirement.txt`. The most important is to h
 ## Dynamics Learning
 To run a minimal example of dynamics learning, first download a sample dataset [here](https://drive.google.com/file/d/1KS9Zyp4Z9K7R0F13zmgMpsP21Wa589C2/view?usp=sharing), then run the following
 ```angular2html
-cd robopack-public
+cd robopack
 unzip data.zip
 cd dynamics 
 python train_dynamics.py --config model_configs/estimator_predictor_tac_boxes.json
